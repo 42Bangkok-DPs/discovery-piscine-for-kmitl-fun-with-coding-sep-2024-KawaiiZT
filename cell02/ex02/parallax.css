@@ -1,0 +1,30 @@
+.parallax1 {
+    background-image: url("https://cdn.pixabay.com/photo/2022/12/01/04/40/backpacker-7628303_1280.jpg");
+    min-height: 1000px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative; 
+}
+
+.parallax2 {
+    background-image: url("https://www.pixelstalk.net/wp-content/uploads/images6/Aesthetic-Anime-Wallpaper-4K-HD.jpg");
+    min-height: 1000px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative; 
+}
+
+.text-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 15px; 
+    text-align: center;
+    width: 100%; 
+}
