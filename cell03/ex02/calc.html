@@ -29,7 +29,7 @@
 <body>
     <h1 style="text-align: center;">Calculator</h1>
     <div class="calculator">
-        <input type="number" id="leftnumber" name="leftnumber">
+        <input type="text" id="leftnumber" name="leftnumber">
         <select name="Math" id="Math">
             <option value="plus">+</option>
             <option value="minus">-</option>
@@ -37,17 +37,17 @@
             <option value="divide">/</option>
             <option value="percent">%</option>
         </select>
-        <input type="number" id="rightnumber" name="rightnumber">
+        <input type="text" id="rightnumber" name="rightnumber">
         <input type="submit" value="Try me!" onclick="calculate()">
     </div>
     <script>
         
         function calculate() {
-            const leftNumber = parseInt(document.getElementById('leftnumbr').value);
+            const leftNumber = parseInt(document.getElementById('leftnumber').value);
             const rightNumber = parseInt(document.getElementById('rightnumber').value);
             const operator = document.getElementById('Math').value;
             let result;
-
+  
             // Check if both inputs are positive integers
             if (isNaN(leftNumber) || isNaN(rightNumber) || leftNumber < 0 || rightNumber < 0) {
                 alert('Error :(');
