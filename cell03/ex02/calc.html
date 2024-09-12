@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
         body {
             display: flex;
@@ -38,24 +39,36 @@
             <option value="percent">%</option>
         </select>
         <input type="text" id="rightnumber" name="rightnumber">
-        <input type="submit" value="Try me!" onclick="calculate()">
+        <input type="button" id="calculateButton" value="Try me!">
     </div>
+    
     <script>
-        
-        function calculate() {
-            const leftNumber = parseInt(document.getElementById('leftnumber').value);
-            const rightNumber = parseInt(document.getElementById('rightnumber').value);
-            const operator = document.getElementById('Math').value;
-            let result;
-  
-            // Check if both inputs are positive integers
-            if (isNaN(leftNumber) || isNaN(rightNumber) || leftNumber < 0 || rightNumber < 0) {
+    $(document).ready(function() {
+        $('#calculateButton').click(function() {
+            const leftNumberStr = $('#leftnumber').val().trim();
+            const rightNumberStr = $('#rightnumber').val().trim();
+            const operator = $('#Math').val();
+
+            function isValidNumber(value) {
+                return /^-?\d+$/.test(value);
+            }
+
+            if (!isValidNumber(leftNumberStr) || !isValidNumber(rightNumberStr)) {
                 alert('Error :(');
                 console.log('Error :(');
                 return;
             }
 
-            //calculate
+            const leftNumber = parseFloat(leftNumberStr);
+            const rightNumber = parseFloat(rightNumberStr);
+
+            if (!Number.isInteger(leftNumber) || !Number.isInteger(rightNumber) || leftNumber < 0 || rightNumber < 0) {
+                alert('Error :(');
+                console.log('Error :(');
+                return;
+            }
+            
+            let result;
             switch (operator) {
                 case 'plus':
                     result = leftNumber + rightNumber;
@@ -84,15 +97,15 @@
                     break;
             }
 
-            // Display result
             alert(`Result: ${result}`);
             console.log(`Result: ${result}`);
-        }
+        });
 
         // Alert every 30 seconds
         setInterval(() => {
             alert('Please, use me...');
         }, 30000);
+    });
     </script>
 </body>
 </html>
